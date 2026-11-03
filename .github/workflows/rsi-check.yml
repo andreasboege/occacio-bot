@@ -1,0 +1,62 @@
+name: RSI check
+
+on:
+  schedule:
+    # UTC, wide enough for CET and CEST; the script enforces the Copenhagen window.
+    - cron: "*/5 5-16 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One run at a time so state updates never race; skip queued duplicates.
+concurrency:
+  group: rsi-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # State lives on an orphan `state` branch (created on first run).
+      - name: Restore state
+        run: |
+          mkdir -p state
+          git fetch origin state --depth=1 2>/dev/null && git show FETCH_HEAD:state.json > state/state.json || echo "no state yet"
+
+      - name: Run check
+        run: npx tsx src/run.ts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Save state
+        run: |
+          [ -f state/state.json ] || exit 0
+          git config user.name "rsi-bot"
+          git config user.email "rsi-bot@users.noreply.github.com"
+          rm -rf /tmp/state-wt
+          if git fetch origin state --depth=1 2>/dev/null; then
+            git worktree add /tmp/state-wt FETCH_HEAD --detach
+          else
+            git worktree add --detach /tmp/state-wt
+            git -C /tmp/state-wt checkout --orphan state
+            git -C /tmp/state-wt rm -rf . >/dev/null 2>&1 || true
+          fi
+          cp state/state.json /tmp/state-wt/state.json
+          cd /tmp/state-wt
+          git add state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update state"
+            git push origin HEAD:state
+          fi
