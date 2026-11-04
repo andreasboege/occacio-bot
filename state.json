@@ -1,0 +1,55 @@
+{
+  "^FCHI": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "^GDAXI": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "^FTSE": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "ES=F": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "EURUSD=X": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "YM=F": {
+    "zone": "overbought",
+    "failures": 0,
+    "lastAlertAt": 1793779948128
+  },
+  "GC=F": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "NQ=F": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "GBPUSD=X": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "BTC-USD": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "USDJPY=X": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "NG=F": {
+    "zone": "inside",
+    "failures": 0
+  },
+  "CL=F": {
+    "zone": "inside",
+    "failures": 0
+  }
+}
