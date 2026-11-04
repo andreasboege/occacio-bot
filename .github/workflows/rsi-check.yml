@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 # One run at a time so state updates never race; skip queued duplicates.
 concurrency:
@@ -17,7 +18,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
 
@@ -60,3 +61,13 @@ jobs:
             git commit -m "Update state"
             git push origin HEAD:state
           fi
+
+      # GitHub's cron is unreliable for this repo, so each run re-dispatches itself
+      # at the next 5-minute mark. Cron stays as a backup; concurrency drops duplicates.
+      - name: Schedule next run
+        if: always() && github.event_name != 'workflow_run'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep $((300 - $(date +%s) % 300))
+          gh workflow run rsi-check.yml --ref main
