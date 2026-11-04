@@ -1,6 +1,6 @@
 {
   "^FCHI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793803842410
   },
@@ -15,9 +15,9 @@
     "lastAlertAt": 1793801412213
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1793790914782
+    "lastAlertAt": 1793804111920
   },
   "EURUSD=X": {
     "zone": "inside",
@@ -34,15 +34,16 @@
     "failures": 0
   },
   "NQ=F": {
-    "zone": "inside",
-    "failures": 0
+    "zone": "overbought",
+    "failures": 0,
+    "lastAlertAt": 1793804111920
   },
   "GBPUSD=X": {
     "zone": "inside",
     "failures": 0
   },
   "BTC-USD": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793803515083
   },
