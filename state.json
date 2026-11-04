@@ -12,7 +12,7 @@
     "failures": 0
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
     "lastAlertAt": 1793783112625
   },
