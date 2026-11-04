@@ -2,7 +2,7 @@ name: RSI check
 
 on:
   schedule:
-    # UTC, wide enough for CET and CEST; the script enforces the Copenhagen window.
+    # UTC, wide enough for CET and CEST; the script enforces the Copenhagen window (every 5 min, Mon-Fri).
     - cron: "*/5 5-16 * * 1-5"
   workflow_dispatch:
 
