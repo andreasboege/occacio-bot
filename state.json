@@ -34,7 +34,7 @@
     "failures": 0
   },
   "NQ=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
     "lastAlertAt": 1793804111920
   },
