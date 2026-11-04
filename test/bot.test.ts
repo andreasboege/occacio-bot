@@ -104,8 +104,8 @@ test("active hours follow Copenhagen time across DST", () => {
 
 test("alert message format", () => {
   const msg = formatAlert({
-    name: "DAX", zone: "oversold", rsi: 17.84, period: 14, oversold: 20, overbought: 80,
-    close: 18432.5, time: Date.UTC(2026, 0, 14, 9, 35), timezone: "Europe/Copenhagen",
+    name: "DAX", zone: "overbought", rsi: 76.9, period: 14,
+    time: Date.UTC(2026, 0, 14, 9, 35), timezone: "Europe/Copenhagen",
   });
-  assert.equal(msg, "🔻 DAX RSI(14, 5m) = 17.8 (< 20) at 10:35 CET, last close 18,432.5");
+  assert.equal(msg, "🔺 DAX - RSI(14, 5m) = 76.9 at 10:35 CET");
 });

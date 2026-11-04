@@ -39,18 +39,12 @@ export interface AlertInfo {
   zone: RsiZone;
   rsi: number;
   period: number;
-  oversold: number;
-  overbought: number;
-  close: number;
   time: number;
   timezone: string;
 }
 
 export function formatAlert(a: AlertInfo): string {
-  const price = a.close.toLocaleString("en-US", { maximumFractionDigits: 5 });
   const when = formatTime(a.time, a.timezone);
-  const head = `RSI(${a.period}, 5m) = ${a.rsi.toFixed(1)}`;
-  if (a.zone === "oversold") return `🔻 ${a.name} ${head} (< ${a.oversold}) at ${when}, last close ${price}`;
-  if (a.zone === "overbought") return `🔺 ${a.name} ${head} (> ${a.overbought}) at ${when}, last close ${price}`;
-  return `↩️ ${a.name} ${head} back inside ${a.oversold}-${a.overbought} at ${when}, last close ${price}`;
+  const emoji = a.zone === "oversold" ? "🔻" : a.zone === "overbought" ? "🔺" : "↩️";
+  return `${emoji} ${a.name} - RSI(${a.period}, 5m) = ${a.rsi.toFixed(1)} at ${when}`;
 }
