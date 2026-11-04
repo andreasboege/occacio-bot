@@ -42,8 +42,9 @@
     "failures": 0
   },
   "BTC-USD": {
-    "zone": "inside",
-    "failures": 0
+    "zone": "overbought",
+    "failures": 0,
+    "lastAlertAt": 1793803515083
   },
   "USDJPY=X": {
     "zone": "inside",
