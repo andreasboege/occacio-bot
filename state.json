@@ -1,11 +1,11 @@
 {
   "^FCHI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793803842410
   },
   "^GDAXI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793804413900
   },
@@ -34,7 +34,7 @@
     "failures": 0
   },
   "NQ=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793804111920
   },
@@ -43,7 +43,7 @@
     "failures": 0
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
     "lastAlertAt": 1793803515083
   },
