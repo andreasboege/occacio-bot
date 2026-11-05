@@ -21,10 +21,10 @@ The bot only checks instruments from **07:00 inclusive to 17:00 exclusive, Europ
 ## How alerts work
 
 - The bot fetches 5-minute candles from Yahoo Finance and calculates RSI(14) using closed candles only; an in-progress candle is ignored.
-- An RSI **below 25** is oversold; an RSI **above 75** is overbought. The thresholds themselves (25 and 75) do not trigger alerts.
+- An RSI **below 30** is oversold; an RSI **above 70** is overbought. The thresholds themselves (30 and 70) do not trigger alerts.
 - An alert is sent when an instrument crosses into an oversold or overbought zone. It does not send repeated alerts on every check while the RSI remains in the same zone.
 - A 30-minute cooldown suppresses repeat alerts for each instrument. The bot continues tracking zones during the cooldown.
-- When RSI returns to the 25–75 range, no notification is sent by default.
+- When RSI returns to the 30–70 range, no notification is sent by default.
 - Data with no closed candle or a newest closed candle more than 20 minutes old is skipped.
 - If fetching data for an instrument fails for three consecutive runs, the bot sends a data-fetch warning for that instrument.
 

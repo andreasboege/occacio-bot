@@ -1,7 +1,7 @@
 {
   "rsiPeriod": 14,
-  "oversold": 25,
-  "overbought": 75,
+  "oversold": 30,
+  "overbought": 70,
   "cooldownMinutes": 30,
   "notifyBackInside": false,
   "staleMinutes": 20,
