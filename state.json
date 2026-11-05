@@ -57,7 +57,8 @@
     "failures": 0
   },
   "CL=F": {
-    "zone": "inside",
-    "failures": 0
+    "zone": "overbought",
+    "failures": 0,
+    "lastAlertAt": 1793880613646
   }
 }
