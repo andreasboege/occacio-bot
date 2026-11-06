@@ -5,7 +5,7 @@
     "lastAlertAt": 1793964313034
   },
   "^GDAXI": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793966111450
   },
