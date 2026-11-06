@@ -15,7 +15,7 @@
     "lastAlertAt": 1793892912426
   },
   "ES=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793958311861
   },
@@ -35,7 +35,7 @@
     "lastAlertAt": 1793954129452
   },
   "NQ=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793958311861
   },
