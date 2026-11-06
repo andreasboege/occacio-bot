@@ -16,6 +16,8 @@ The configured instruments are:
 
 The GitHub Actions workflow aims to check every five minutes on weekdays. It uses a scheduled run as a backup and re-dispatches itself for the next five-minute mark.
 
+If dispatching the next run fails, the workflow retries up to three times, with 10-, 20-, and 40-second delays. If all attempts fail, the workflow is marked as failed and the scheduled backup may restart it. Retries and the backup cannot guarantee recovery during a prolonged outage; there is no independent stopped-bot notification.
+
 The bot only checks instruments from **07:00 inclusive to 17:00 exclusive, Europe/Copenhagen time**, Monday through Friday. The timezone observes CET/CEST automatically. Workflow runs outside this window exit without fetching market data.
 
 ## How alerts work

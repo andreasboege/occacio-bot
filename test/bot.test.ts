@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { isWithinActiveHours } from "../src/config.ts";
 import { evaluate, type Thresholds } from "../src/evaluate.ts";
@@ -123,4 +125,45 @@ test("Telegram notifier sends each message to every configured chat", async () =
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test("workflow scheduling retries failures and reports exhausted retries", () => {
+  const workflow = readFileSync(new URL("../.github/workflows/rsi-check.yml", import.meta.url), "utf8");
+  const scheduleStep = workflow.split("      - name: Schedule next run\n")[1];
+  assert.ok(scheduleStep, "missing scheduling step");
+  const script = scheduleStep.split("        run: |\n")[1]?.replace(/^          /gm, "");
+  assert.ok(script, "missing scheduling script");
+
+  const mocks = `
+    attempts=0
+    date() { echo 300; }
+    sleep() { echo "sleep $1"; }
+    timeout() { shift; "$@"; }
+    gh() {
+      attempts=$((attempts + 1))
+      echo "dispatch $attempts: $*"
+      [ "$attempts" -gt "$FAILURES" ]
+    }
+  `;
+  const run = (failures: number) => spawnSync("bash", ["-e", "-c", mocks + script], {
+    encoding: "utf8", env: { ...process.env, FAILURES: String(failures) },
+  });
+
+  const immediate = run(0);
+  assert.equal(immediate.status, 0);
+  assert.equal((immediate.stdout.match(/dispatch \d+:/g) ?? []).length, 1);
+  assert.doesNotMatch(immediate.stdout, /retrying/);
+
+  const recovered = run(2);
+  assert.equal(recovered.status, 0);
+  assert.match(recovered.stdout, /sleep 10/);
+  assert.match(recovered.stdout, /sleep 20/);
+  assert.equal((recovered.stdout.match(/dispatch \d+:/g) ?? []).length, 3);
+  assert.match(recovered.stdout, /dispatch 3: workflow run rsi-check.yml --ref main/);
+
+  const failed = run(4);
+  assert.equal(failed.status, 1);
+  assert.equal((failed.stdout.match(/dispatch \d+:/g) ?? []).length, 4);
+  assert.match(failed.stdout, /sleep 40/);
+  assert.match(failed.stdout, /::error::Failed to schedule the next run after 4 attempts/);
 });
