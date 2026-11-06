@@ -21,6 +21,6 @@
     { "name": "Gold", "emoji": "🥇", "symbol": "GC=F" },
     { "name": "Crude oil", "emoji": "🛢️", "symbol": "CL=F" },
     { "name": "Natural gas", "emoji": "⛽", "symbol": "NG=F" },
-    { "name": "Bitcoin", "emoji": "₿", "symbol": "BTC-USD" }
+    { "name": "Bitcoin", "emoji": "🪙", "symbol": "BTC-USD" }
   ]
 }
