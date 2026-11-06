@@ -40,4 +40,4 @@ Oversold alerts use 🔻; overbought alerts use 🔺. The threshold and last clo
 
 Instrument names and symbols, RSI settings, active hours, and other thresholds are in [`config.json`](config.json).
 
-The workflow needs `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` configured as GitHub Actions secrets. Do not put these values in this README, source files, or other public repository content.
+The workflow needs `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` configured as GitHub Actions secrets. To send alerts to a second Telegram chat, also configure the optional `TELEGRAM_CHAT_ID_2` secret. The bot sends each alert to both configured chat IDs. Do not put these values in this README, source files, or other public repository content.

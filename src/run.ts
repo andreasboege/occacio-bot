@@ -13,9 +13,13 @@ const stateFile = process.env.STATE_FILE ?? "state/state.json";
 function makeNotifier(): Notifier {
   if (dryRun) return consoleNotifier();
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) throw new Error("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set (or use --dry-run)");
-  return telegramNotifier(token, chatId);
+  const chatIds = [process.env.TELEGRAM_CHAT_ID, process.env.TELEGRAM_CHAT_ID_2].filter(
+    (chatId): chatId is string => Boolean(chatId),
+  );
+  if (!token || !chatIds.length) {
+    throw new Error("TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set (or use --dry-run)");
+  }
+  return telegramNotifier(token, chatIds);
 }
 
 /** Checks one instrument and updates `state` in place. */

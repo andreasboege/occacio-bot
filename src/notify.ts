@@ -8,15 +8,21 @@ export function consoleNotifier(): Notifier {
   return { send: async (text) => console.log(`[dry-run] ${text}`) };
 }
 
-export function telegramNotifier(token: string, chatId: string): Notifier {
+export function telegramNotifier(token: string, chatIds: string[]): Notifier {
   return {
     async send(text) {
-      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text }),
-      });
-      if (!res.ok) throw new Error(`Telegram HTTP ${res.status}: ${await res.text()}`);
+      const results = await Promise.all(
+        chatIds.map((chatId) =>
+          fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: chatId, text }),
+          }),
+        ),
+      );
+      const failed = await Promise.all(results.map(async (res) => (res.ok ? null : `Telegram HTTP ${res.status}: ${await res.text()}`)));
+      const errors = failed.filter((error): error is string => error !== null);
+      if (errors.length) throw new Error(errors.join("; "));
     },
   };
 }
