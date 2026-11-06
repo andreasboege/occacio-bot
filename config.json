@@ -7,7 +7,7 @@
   "staleMinutes": 20,
   "failureAlertThreshold": 3,
   "timezone": "Europe/Copenhagen",
-  "activeHours": { "start": "07:00", "end": "17:00" },
+  "activeHours": { "start": "07:00", "end": "20:00" },
   "instruments": [
     { "name": "DAX", "emoji": "🇩🇪", "symbol": "^GDAXI" },
     { "name": "FTSE 100", "emoji": "🇬🇧", "symbol": "^FTSE" },
