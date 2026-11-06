@@ -90,16 +90,17 @@ test("optional back-inside message", () => {
 });
 
 test("active hours follow Copenhagen time across DST", () => {
-  const cfg = { timezone: "Europe/Copenhagen", activeHours: { start: "07:00", end: "17:00" } };
+  const cfg = { timezone: "Europe/Copenhagen", activeHours: { start: "07:00", end: "20:00" } };
   // Summer (CEST = UTC+2): 05:00 UTC is 07:00 local.
   assert.equal(isWithinActiveHours(new Date("2026-07-15T05:00:00Z"), cfg), true);
   assert.equal(isWithinActiveHours(new Date("2026-07-15T04:55:00Z"), cfg), false);
-  assert.equal(isWithinActiveHours(new Date("2026-07-15T14:55:00Z"), cfg), true);
-  assert.equal(isWithinActiveHours(new Date("2026-07-15T15:00:00Z"), cfg), false);
+  assert.equal(isWithinActiveHours(new Date("2026-07-15T17:55:00Z"), cfg), true);
+  assert.equal(isWithinActiveHours(new Date("2026-07-15T18:00:00Z"), cfg), false);
   // Winter (CET = UTC+1): 06:00 UTC is 07:00 local.
   assert.equal(isWithinActiveHours(new Date("2026-01-14T05:55:00Z"), cfg), false);
   assert.equal(isWithinActiveHours(new Date("2026-01-14T06:00:00Z"), cfg), true);
-  assert.equal(isWithinActiveHours(new Date("2026-01-14T16:00:00Z"), cfg), false);
+  assert.equal(isWithinActiveHours(new Date("2026-01-14T18:55:00Z"), cfg), true);
+  assert.equal(isWithinActiveHours(new Date("2026-01-14T19:00:00Z"), cfg), false);
   // Weekend.
   assert.equal(isWithinActiveHours(new Date("2026-07-18T10:00:00Z"), cfg), false);
 });
