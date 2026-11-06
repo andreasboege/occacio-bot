@@ -30,10 +30,10 @@ The bot only checks instruments from **07:00 inclusive to 17:00 exclusive, Europ
 - Data with no closed candle or a newest closed candle more than 20 minutes old is skipped.
 - If fetching data for an instrument fails for three consecutive runs, the bot sends a data-fetch warning for that instrument.
 
-Alert messages include a direction emoji, instrument, RSI, and candle time, for example:
+Alert messages include a direction emoji, an optional per-instrument `emoji` from `config.json` (e.g. a flag), instrument, RSI, and candle time, for example:
 
 ```text
-🔺 DAX - RSI(14, 5m) = 76.9 at 16:40 CET
+🔺 🇩🇪 DAX - RSI(14, 5m) = 76.9 at 16:40 CET
 ```
 
 Oversold alerts use 🔻; overbought alerts use 🔺. The threshold and last closing price are not included in the alert message.

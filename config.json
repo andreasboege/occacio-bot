@@ -9,18 +9,18 @@
   "timezone": "Europe/Copenhagen",
   "activeHours": { "start": "07:00", "end": "17:00" },
   "instruments": [
-    { "name": "DAX", "symbol": "^GDAXI" },
-    { "name": "FTSE 100", "symbol": "^FTSE" },
-    { "name": "CAC 40", "symbol": "^FCHI" },
-    { "name": "S&P 500 futures", "symbol": "ES=F" },
-    { "name": "Nasdaq 100 futures", "symbol": "NQ=F" },
-    { "name": "Dow futures", "symbol": "YM=F" },
-    { "name": "EUR/USD", "symbol": "EURUSD=X" },
-    { "name": "GBP/USD", "symbol": "GBPUSD=X" },
-    { "name": "USD/JPY", "symbol": "USDJPY=X" },
-    { "name": "Gold", "symbol": "GC=F" },
-    { "name": "Crude oil", "symbol": "CL=F" },
-    { "name": "Natural gas", "symbol": "NG=F" },
-    { "name": "Bitcoin", "symbol": "BTC-USD" }
+    { "name": "DAX", "emoji": "🇩🇪", "symbol": "^GDAXI" },
+    { "name": "FTSE 100", "emoji": "🇬🇧", "symbol": "^FTSE" },
+    { "name": "CAC 40", "emoji": "🇫🇷", "symbol": "^FCHI" },
+    { "name": "S&P 500 futures", "emoji": "🇺🇸", "symbol": "ES=F" },
+    { "name": "Nasdaq 100 futures", "emoji": "🇺🇸", "symbol": "NQ=F" },
+    { "name": "Dow futures", "emoji": "🇺🇸", "symbol": "YM=F" },
+    { "name": "EUR/USD", "emoji": "🇪🇺🇺🇸", "symbol": "EURUSD=X" },
+    { "name": "GBP/USD", "emoji": "🇬🇧🇺🇸", "symbol": "GBPUSD=X" },
+    { "name": "USD/JPY", "emoji": "🇺🇸🇯🇵", "symbol": "USDJPY=X" },
+    { "name": "Gold", "emoji": "🥇", "symbol": "GC=F" },
+    { "name": "Crude oil", "emoji": "🛢️", "symbol": "CL=F" },
+    { "name": "Natural gas", "emoji": "⛽", "symbol": "NG=F" },
+    { "name": "Bitcoin", "emoji": "₿", "symbol": "BTC-USD" }
   ]
 }

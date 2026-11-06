@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 
 export interface Instrument {
   name: string;
+  emoji?: string;
   symbol: string;
 }
 
