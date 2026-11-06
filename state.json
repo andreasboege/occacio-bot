@@ -1,6 +1,6 @@
 {
   "^FCHI": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793964313034
   },
@@ -59,8 +59,8 @@
     "failures": 0
   },
   "CL=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1793957415853
+    "lastAlertAt": 1793964616150
   }
 }
