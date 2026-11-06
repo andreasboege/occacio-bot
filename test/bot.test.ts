@@ -106,10 +106,10 @@ test("active hours follow Copenhagen time across DST", () => {
 
 test("alert message format", () => {
   const msg = formatAlert({
-    name: "DAX", zone: "overbought", rsi: 76.9, period: 14,
+    name: "DAX", emoji: "🇩🇪", zone: "overbought", rsi: 76.9, period: 14,
     time: Date.UTC(2026, 0, 14, 9, 35), timezone: "Europe/Copenhagen",
   });
-  assert.equal(msg, "🔺 DAX - RSI(14, 5m) = 76.9 at 10:35 CET");
+  assert.equal(msg, "🔺 🇩🇪 DAX - RSI(14, 5m) = 76.9 at 10:35 CET");
 });
 
 test("Telegram notifier sends each message to every configured chat", async () => {

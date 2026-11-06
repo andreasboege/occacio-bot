@@ -42,6 +42,7 @@ export function formatTime(ms: number, timezone: string): string {
 
 export interface AlertInfo {
   name: string;
+  emoji?: string;
   zone: RsiZone;
   rsi: number;
   period: number;
@@ -52,5 +53,5 @@ export interface AlertInfo {
 export function formatAlert(a: AlertInfo): string {
   const when = formatTime(a.time, a.timezone);
   const emoji = a.zone === "oversold" ? "🔻" : a.zone === "overbought" ? "🔺" : "↩️";
-  return `${emoji} ${a.name} - RSI(${a.period}, 5m) = ${a.rsi.toFixed(1)} at ${when}`;
+  return `${emoji} ${a.emoji ? `${a.emoji} ` : ""}${a.name} - RSI(${a.period}, 5m) = ${a.rsi.toFixed(1)} at ${when}`;
 }

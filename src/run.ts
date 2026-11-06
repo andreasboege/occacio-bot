@@ -68,6 +68,7 @@ async function checkInstrument(
     await notifier.send(
       formatAlert({
         name: inst.name,
+        emoji: inst.emoji,
         zone: result.zone,
         rsi,
         period: config.rsiPeriod,
