@@ -10,7 +10,7 @@
     "lastAlertAt": 1793890815272
   },
   "^FTSE": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1793892912426
   },
@@ -40,7 +40,7 @@
     "lastAlertAt": 1793889015388
   },
   "GBPUSD=X": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1793956514479
   },
