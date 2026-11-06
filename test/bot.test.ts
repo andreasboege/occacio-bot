@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { isWithinActiveHours } from "../src/config.ts";
 import { evaluate, type Thresholds } from "../src/evaluate.ts";
 import { CANDLE_MS, closedCandles, isStale, parseYahooChart } from "../src/fetch.ts";
-import { formatAlert } from "../src/notify.ts";
+import { formatAlert, telegramNotifier } from "../src/notify.ts";
 import { calcRsi } from "../src/rsi.ts";
 import { initialState } from "../src/state.ts";
 
@@ -108,4 +108,19 @@ test("alert message format", () => {
     time: Date.UTC(2026, 0, 14, 9, 35), timezone: "Europe/Copenhagen",
   });
   assert.equal(msg, "🔺 DAX - RSI(14, 5m) = 76.9 at 10:35 CET");
+});
+
+test("Telegram notifier sends each message to every configured chat", async () => {
+  const originalFetch = globalThis.fetch;
+  const chatIds: string[] = [];
+  globalThis.fetch = async (_input, init) => {
+    chatIds.push(JSON.parse(String(init?.body)).chat_id);
+    return new Response("{}", { status: 200 });
+  };
+  try {
+    await telegramNotifier("token", ["first-chat", "second-chat"]).send("alert");
+    assert.deepEqual(chatIds, ["first-chat", "second-chat"]);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
