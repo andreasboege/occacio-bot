@@ -10,9 +10,9 @@
     "lastAlertAt": 1794223218543
   },
   "^FTSE": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794220212444
+    "lastAlertAt": 1794225611679
   },
   "ES=F": {
     "zone": "inside",
@@ -60,7 +60,7 @@
     "lastAlertAt": 1794215120846
   },
   "CL=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794223812589
   }
