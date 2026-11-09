@@ -30,7 +30,7 @@
     "lastAlertAt": 1794223218543
   },
   "GC=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794228912139
   },
