@@ -1,6 +1,6 @@
 {
   "^FCHI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794232511775
   },
@@ -10,7 +10,7 @@
     "lastAlertAt": 1794223218543
   },
   "^FTSE": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794232511775
   },
