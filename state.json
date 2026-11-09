@@ -15,9 +15,9 @@
     "lastAlertAt": 1794232511775
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794235812384
+    "lastAlertAt": 1794244514625
   },
   "EURUSD=X": {
     "zone": "inside",
@@ -25,9 +25,9 @@
     "lastAlertAt": 1794218411701
   },
   "YM=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794223218543
+    "lastAlertAt": 1794244514625
   },
   "GC=F": {
     "zone": "inside",
