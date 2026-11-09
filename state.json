@@ -1,6 +1,6 @@
 {
   "^FCHI": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
     "lastAlertAt": 1794232511775
   },
