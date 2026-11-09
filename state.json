@@ -35,9 +35,9 @@
     "lastAlertAt": 1794231312831
   },
   "NQ=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794235513372
+    "lastAlertAt": 1794244812726
   },
   "GBPUSD=X": {
     "zone": "inside",
