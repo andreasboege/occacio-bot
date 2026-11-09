@@ -15,7 +15,7 @@
     "lastAlertAt": 1793982317587
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1794209712662
   },
@@ -25,7 +25,7 @@
     "lastAlertAt": 1794210011824
   },
   "YM=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1794209712662
   },
@@ -35,7 +35,7 @@
     "lastAlertAt": 1794209412467
   },
   "NQ=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1794209712662
   },
@@ -50,9 +50,9 @@
     "lastAlertAt": 1794206711737
   },
   "USDJPY=X": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794208812227
+    "lastAlertAt": 1794210913786
   },
   "NG=F": {
     "zone": "inside",
