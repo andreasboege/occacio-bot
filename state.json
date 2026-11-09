@@ -5,7 +5,7 @@
     "lastAlertAt": 1794214812924
   },
   "^GDAXI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794216316554
   },
@@ -20,9 +20,9 @@
     "lastAlertAt": 1794209712662
   },
   "EURUSD=X": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794210011824
+    "lastAlertAt": 1794216611405
   },
   "YM=F": {
     "zone": "inside",
