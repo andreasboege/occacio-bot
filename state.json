@@ -45,9 +45,9 @@
     "lastAlertAt": 1794321017071
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794319212550
+    "lastAlertAt": 1794325516553
   },
   "USDJPY=X": {
     "zone": "inside",
