@@ -5,9 +5,9 @@
     "lastAlertAt": 1794323418051
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794323418051
+    "lastAlertAt": 1794329414128
   },
   "^FTSE": {
     "zone": "inside",
@@ -50,7 +50,7 @@
     "lastAlertAt": 1794325516553
   },
   "USDJPY=X": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794327915942
   },
