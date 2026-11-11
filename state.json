@@ -40,9 +40,9 @@
     "lastAlertAt": 1794323717002
   },
   "GBPUSD=X": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794385213038
+    "lastAlertAt": 1794403514025
   },
   "BTC-USD": {
     "zone": "inside",
@@ -55,9 +55,9 @@
     "lastAlertAt": 1794402612234
   },
   "NG=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794386412332
+    "lastAlertAt": 1794403514025
   },
   "CL=F": {
     "zone": "inside",
