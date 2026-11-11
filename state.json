@@ -5,7 +5,7 @@
     "lastAlertAt": 1794323418051
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
     "lastAlertAt": 1794414015084
   },
@@ -55,7 +55,7 @@
     "lastAlertAt": 1794410417943
   },
   "NG=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794414015084
   },
