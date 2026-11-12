@@ -10,7 +10,7 @@
     "lastAlertAt": 1794471639287
   },
   "^FTSE": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794471639287
   },
@@ -30,9 +30,9 @@
     "lastAlertAt": 1794421812985
   },
   "GC=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794420613062
+    "lastAlertAt": 1794474012663
   },
   "NQ=F": {
     "zone": "inside",
@@ -55,9 +55,9 @@
     "lastAlertAt": 1794417016714
   },
   "NG=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794420011638
+    "lastAlertAt": 1794474012663
   },
   "CL=F": {
     "zone": "inside",
