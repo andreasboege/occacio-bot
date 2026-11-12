@@ -5,7 +5,7 @@
     "lastAlertAt": 1794471639287
   },
   "^GDAXI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794471639287
   },
@@ -45,9 +45,9 @@
     "lastAlertAt": 1794403514025
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794325516553
+    "lastAlertAt": 1794475212693
   },
   "USDJPY=X": {
     "zone": "inside",
