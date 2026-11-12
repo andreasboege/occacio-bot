@@ -1,18 +1,18 @@
 {
   "^FCHI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794476714545
+    "lastAlertAt": 1794489912716
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794476414381
+    "lastAlertAt": 1794489912716
   },
   "^FTSE": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794474315407
+    "lastAlertAt": 1794489912716
   },
   "ES=F": {
     "zone": "oversold",
