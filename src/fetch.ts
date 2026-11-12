@@ -27,9 +27,10 @@ export async function fetchCandles(symbol: string): Promise<Candle[]> {
       return parseYahooChart(await res.json());
     } catch (err) {
       lastError = err;
+      console.warn(`${symbol}: fetch attempt ${attempt + 1}/${RETRIES} failed: ${err instanceof Error ? err.message : String(err)}`);
     }
   }
-  throw new Error(`fetch ${symbol} failed: ${(lastError as Error).message}`);
+  throw new Error(`fetch ${symbol} failed: ${lastError instanceof Error ? lastError.message : String(lastError)}`);
 }
 
 export function parseYahooChart(json: any): Candle[] {
@@ -48,6 +49,13 @@ export function parseYahooChart(json: any): Candle[] {
 /** Drops the candle that is still forming (start + 5 min > now). */
 export function closedCandles(candles: Candle[], now: number): Candle[] {
   return candles.filter((c) => c.time + CANDLE_MS <= now);
+}
+
+/** Keeps candles whose start falls on today's date in the instrument's local timezone. */
+export function currentDayCandles(candles: Candle[], now: number, timezone: string): Candle[] {
+  const date = new Intl.DateTimeFormat("en-CA", { timeZone: timezone, year: "numeric", month: "2-digit", day: "2-digit" });
+  const today = date.format(now);
+  return candles.filter((c) => date.format(c.time) === today);
 }
 
 /** True if the newest closed candle closed more than `staleMinutes` ago (or there is none). */

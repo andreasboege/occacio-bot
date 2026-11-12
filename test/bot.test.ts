@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { isWithinActiveHours } from "../src/config.ts";
 import { evaluate, type Thresholds } from "../src/evaluate.ts";
-import { CANDLE_MS, closedCandles, isStale, parseYahooChart } from "../src/fetch.ts";
+import { CANDLE_MS, closedCandles, currentDayCandles, isStale, parseYahooChart } from "../src/fetch.ts";
 import { formatAlert, telegramNotifier } from "../src/notify.ts";
 import { calcRsi } from "../src/rsi.ts";
 import { initialState } from "../src/state.ts";
@@ -37,6 +37,64 @@ test("closedCandles drops the candle that is still forming", () => {
   const candles = [candleAt(0), candleAt(5)]; // 10:05 candle closes 10:10 > now
   assert.deepEqual(closedCandles(candles, now), [candleAt(0)]);
   assert.equal(closedCandles(candles, Date.UTC(2026, 10, 3, 10, 10)).length, 2); // exactly closed counts
+});
+
+test("session RSI excludes earlier local dates and waits for 15 closed candles", () => {
+  const start = Date.parse("2026-11-12T08:00:00Z");
+  const previous = Array.from({ length: 30 }, (_, i) => ({ time: Date.parse("2026-11-11T13:00:00Z") + i * CANDLE_MS, close: 100 + i }));
+  const today = Array.from({ length: 15 }, (_, i) => ({ time: start + i * CANDLE_MS, close: 120 + i }));
+  const candles = [...previous, ...today];
+  const before = currentDayCandles(closedCandles(candles, start + 14 * CANDLE_MS), start + 14 * CANDLE_MS, "Europe/Berlin");
+  const ready = currentDayCandles(closedCandles(candles, start + 15 * CANDLE_MS), start + 15 * CANDLE_MS, "Europe/Berlin");
+  assert.equal(before.length, 14);
+  assert.equal(calcRsi(before.map((c) => c.close)), null);
+  assert.deepEqual(ready, today);
+  assert.equal(calcRsi(ready.map((c) => c.close)), 100);
+});
+
+test("current-day selection uses the market timezone across midnight and DST", () => {
+  const candles = [
+    { time: Date.parse("2026-03-29T22:30:00Z"), close: 1 },
+    { time: Date.parse("2026-03-29T23:30:00Z"), close: 2 },
+  ];
+  const now = Date.parse("2026-03-30T00:00:00Z");
+  assert.deepEqual(currentDayCandles(candles, now, "Europe/London"), [candles[1]]);
+  assert.deepEqual(currentDayCandles(candles, now, "Europe/Paris"), candles);
+});
+
+test("EU index alerts wait for today's 15 closed candles while other instruments keep history", () => {
+  const script = `
+    const start = Date.parse("2026-11-12T08:00:00Z");
+    const count = Number(process.env.CANDLE_COUNT);
+    Date.now = () => start + count * 300000;
+    process.argv = [process.execPath, "src/run.ts", "--dry-run", "--force"];
+    globalThis.fetch = async () => {
+      const timestamps = [
+        ...Array.from({ length: 30 }, (_, i) => Date.parse("2026-11-11T13:00:00Z") + i * 300000),
+        ...Array.from({ length: count }, (_, i) => start + i * 300000),
+      ];
+      return Response.json({ chart: { result: [{
+        timestamp: timestamps.map((t) => t / 1000),
+        indicators: { quote: [{ close: timestamps.map((_, i) => 100 + i) }] },
+      }] } });
+    };
+    await import("./src/run.ts");
+  `;
+  const run = (count: number) => spawnSync(process.execPath, ["--import", "tsx", "--input-type=module", "-e", script], {
+    encoding: "utf8", env: { ...process.env, CANDLE_COUNT: String(count) },
+  });
+  const before = run(14);
+  assert.equal(before.status, 0, before.stderr);
+  for (const name of ["DAX", "FTSE 100", "CAC 40"]) {
+    assert.ok(before.stdout.includes(`${name}: not enough candles for RSI (14/15), skipped`));
+    assert.ok(!before.stdout.includes(`${name} - RSI(`));
+  }
+  assert.match(before.stdout, /S&P 500 futures - RSI\(/);
+  const ready = run(15);
+  assert.equal(ready.status, 0, ready.stderr);
+  for (const name of ["DAX", "FTSE 100", "CAC 40"]) {
+    assert.ok(ready.stdout.includes(`${name} - RSI(14, 5m) = 100.0`));
+  }
 });
 
 test("isStale flags old or missing data", () => {

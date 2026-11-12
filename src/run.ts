@@ -1,6 +1,6 @@
 import { isWithinActiveHours, loadConfig, type Config } from "./config.ts";
 import { evaluate } from "./evaluate.ts";
-import { CANDLE_MS, closedCandles, fetchCandles, isStale, type Candle } from "./fetch.ts";
+import { CANDLE_MS, closedCandles, currentDayCandles, fetchCandles, isStale, type Candle } from "./fetch.ts";
 import { consoleNotifier, formatAlert, telegramNotifier, type Notifier } from "./notify.ts";
 import { calcRsi } from "./rsi.ts";
 import { initialState, loadState, saveState, type State } from "./state.ts";
@@ -39,7 +39,7 @@ async function checkInstrument(
   } catch (err) {
     const failures = prev.failures + 1;
     state[inst.symbol] = { ...prev, failures };
-    console.warn(`${inst.name}: ${(err as Error).message} (${failures} in a row)`);
+    console.warn(`${inst.name} (${inst.symbol}): ${err instanceof Error ? err.message : String(err)} (${failures} failures in a row)`);
     if (failures === config.failureAlertThreshold) {
       await notifier.send(`⚠️ ${inst.name} (${inst.symbol}): data fetch failed ${failures} runs in a row.`);
     }
@@ -47,15 +47,26 @@ async function checkInstrument(
   }
 
   const closed = closedCandles(candles, now);
+  const lastClosed = closed.at(-1);
+  console.log(
+    `${inst.name} (${inst.symbol}): fetched ${candles.length} candles, ${closed.length} closed, ` +
+    `latest close ${lastClosed ? new Date(lastClosed.time + CANDLE_MS).toISOString() : "none"}`,
+  );
   if (isStale(closed, now, config.staleMinutes)) {
     state[inst.symbol] = { ...prev, failures: 0 };
-    console.log(`${inst.name}: no fresh closed candle, skipped`);
+    console.log(`${inst.name}: no fresh closed candle within ${config.staleMinutes} minutes, skipped`);
     return;
   }
 
-  const rsi = calcRsi(closed.map((c) => c.close), config.rsiPeriod);
+  const rsiCandles = inst.rsiSessionTimezone
+    ? currentDayCandles(closed, now, inst.rsiSessionTimezone)
+    : closed;
+  if (inst.rsiSessionTimezone) {
+    console.log(`${inst.name}: ${rsiCandles.length} closed candles today (${inst.rsiSessionTimezone}); ${closed.length - rsiCandles.length} earlier candles excluded`);
+  }
+  const rsi = calcRsi(rsiCandles.map((c) => c.close), config.rsiPeriod);
   if (rsi === null) {
-    console.log(`${inst.name}: not enough candles for RSI, skipped`);
+    console.log(`${inst.name}: not enough candles for RSI (${rsiCandles.length}/${config.rsiPeriod + 1}), skipped`);
     return;
   }
 
@@ -64,7 +75,7 @@ async function checkInstrument(
   console.log(`${inst.name}: RSI ${rsi.toFixed(1)} -> ${result.zone}${result.action === "none" ? "" : ` (${result.action})`}`);
 
   if (result.action !== "none") {
-    const last = closed[closed.length - 1];
+    const last = rsiCandles[rsiCandles.length - 1];
     await notifier.send(
       formatAlert({
         name: inst.name,
@@ -89,6 +100,7 @@ async function main(): Promise<void> {
   }
 
   const now = Date.now();
+  console.log(`Starting check at ${new Date(now).toISOString()}${dryRun ? " (dry run)" : ""}`);
   if (!force && !isWithinActiveHours(new Date(now), config)) {
     console.log("Outside active hours, exiting.");
     return;
@@ -99,11 +111,12 @@ async function main(): Promise<void> {
   await Promise.all(
     config.instruments.map((inst) =>
       checkInstrument(inst, config, state, notifier, now).catch((err) =>
-        console.error(`${inst.name}: unexpected error: ${(err as Error).message}`),
+        console.error(`${inst.name} (${inst.symbol}): unexpected error:`, err),
       ),
     ),
   );
   if (!dryRun) saveState(stateFile, state);
+  console.log("Check finished.");
 }
 
 main().catch((err) => {

@@ -23,12 +23,15 @@ The bot only checks instruments from **07:00 inclusive to 20:00 exclusive, Europ
 ## How alerts work
 
 - The bot fetches 5-minute candles from Yahoo Finance and calculates RSI(14) using closed candles only; an in-progress candle is ignored.
+- DAX, FTSE 100, and CAC 40 use only candles from the current local market date, excluding prior-day closes and overnight gaps. Alerts are skipped until at least 15 closed candles are available. RSI is newly seeded each day and may differ from charts that use continuous history; early readings can be volatile.
 - An RSI **below 30** is oversold; an RSI **above 70** is overbought. The thresholds themselves (30 and 70) do not trigger alerts.
 - An alert is sent when an instrument crosses into an oversold or overbought zone. It does not send repeated alerts on every check while the RSI remains in the same zone.
 - A 30-minute cooldown suppresses repeat alerts for each instrument. The bot continues tracking zones during the cooldown.
 - When RSI returns to the 30–70 range, no notification is sent by default.
 - Data with no closed candle or a newest closed candle more than 20 minutes old is skipped.
 - If fetching data for an instrument fails for three consecutive runs, the bot sends a data-fetch warning for that instrument.
+
+Each run logs fetch retries, candle counts, the latest candle time, and why an instrument was skipped. For session-based indices it also logs how many earlier candles were excluded. Find these under **Actions → RSI check → Run check**. A workflow that fails before a job starts cannot produce application logs; check the Actions run status for startup or queue failures.
 
 Alert messages include a direction emoji, an optional per-instrument `emoji` from `config.json` (e.g. a flag), instrument, RSI, and candle time, for example:
 
