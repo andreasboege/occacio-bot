@@ -20,7 +20,7 @@
     "lastAlertAt": 1794489610246
   },
   "EURUSD=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794496816270
   },
@@ -50,7 +50,7 @@
     "lastAlertAt": 1794495314929
   },
   "USDJPY=X": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794496520364
   },
