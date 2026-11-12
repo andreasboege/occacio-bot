@@ -4,6 +4,7 @@ export interface Instrument {
   name: string;
   emoji?: string;
   symbol: string;
+  rsiSessionTimezone?: string;
 }
 
 export interface Config {
