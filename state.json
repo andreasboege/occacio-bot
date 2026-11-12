@@ -30,9 +30,9 @@
     "lastAlertAt": 1794489610246
   },
   "GC=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794490214712
+    "lastAlertAt": 1794495614983
   },
   "NQ=F": {
     "zone": "inside",
@@ -45,7 +45,7 @@
     "lastAlertAt": 1794489311919
   },
   "BTC-USD": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794495314929
   },
