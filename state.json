@@ -50,7 +50,7 @@
     "lastAlertAt": 1794549623850
   },
   "USDJPY=X": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794550220222
   },
