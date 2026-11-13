@@ -15,9 +15,9 @@
     "lastAlertAt": 1794566712612
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794571814443
+    "lastAlertAt": 1794577527914
   },
   "EURUSD=X": {
     "zone": "inside",
@@ -40,12 +40,12 @@
     "lastAlertAt": 1794571814443
   },
   "GBPUSD=X": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794577213189
   },
   "BTC-USD": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794576916516
   },
