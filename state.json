@@ -1,11 +1,11 @@
 {
   "^FCHI": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794574512353
   },
   "^GDAXI": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794574512353
   },
