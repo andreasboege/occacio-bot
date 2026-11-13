@@ -15,9 +15,9 @@
     "lastAlertAt": 1794489912716
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794499812963
+    "lastAlertAt": 1794549623850
   },
   "EURUSD=X": {
     "zone": "inside",
@@ -35,9 +35,9 @@
     "lastAlertAt": 1794495614983
   },
   "NQ=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794489610246
+    "lastAlertAt": 1794549623850
   },
   "GBPUSD=X": {
     "zone": "inside",
@@ -45,9 +45,9 @@
     "lastAlertAt": 1794496816270
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794495314929
+    "lastAlertAt": 1794549623850
   },
   "USDJPY=X": {
     "zone": "inside",
@@ -55,9 +55,9 @@
     "lastAlertAt": 1794496520364
   },
   "NG=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794474012663
+    "lastAlertAt": 1794549623850
   },
   "CL=F": {
     "zone": "inside",
