@@ -15,7 +15,7 @@
     "lastAlertAt": 1794566712612
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1794581712809
   },
@@ -35,7 +35,7 @@
     "lastAlertAt": 1794495614983
   },
   "NQ=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1794582013881
   },
@@ -45,9 +45,9 @@
     "lastAlertAt": 1794577213189
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794576916516
+    "lastAlertAt": 1794582617439
   },
   "USDJPY=X": {
     "zone": "inside",
