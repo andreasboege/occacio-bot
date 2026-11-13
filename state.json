@@ -15,7 +15,7 @@
     "lastAlertAt": 1794489912716
   },
   "ES=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794549623850
   },
@@ -50,9 +50,9 @@
     "lastAlertAt": 1794549623850
   },
   "USDJPY=X": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794496520364
+    "lastAlertAt": 1794550220222
   },
   "NG=F": {
     "zone": "oversold",
