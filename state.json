@@ -25,9 +25,9 @@
     "lastAlertAt": 1794567311520
   },
   "YM=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794552310917
+    "lastAlertAt": 1794577213189
   },
   "GC=F": {
     "zone": "inside",
@@ -40,9 +40,9 @@
     "lastAlertAt": 1794571814443
   },
   "GBPUSD=X": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1794567311520
+    "lastAlertAt": 1794577213189
   },
   "BTC-USD": {
     "zone": "overbought",
@@ -50,7 +50,7 @@
     "lastAlertAt": 1794576916516
   },
   "USDJPY=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794576916516
   },
