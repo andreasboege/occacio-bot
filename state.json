@@ -15,9 +15,9 @@
     "lastAlertAt": 1794845713776
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794831611646
+    "lastAlertAt": 1794852917286
   },
   "EURUSD=X": {
     "zone": "inside",
@@ -30,9 +30,9 @@
     "lastAlertAt": 1794852611513
   },
   "GC=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794808811197
+    "lastAlertAt": 1794852917286
   },
   "NQ=F": {
     "zone": "inside",
@@ -60,8 +60,8 @@
     "lastAlertAt": 1794832816506
   },
   "CL=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794840614967
+    "lastAlertAt": 1794852917286
   }
 }
