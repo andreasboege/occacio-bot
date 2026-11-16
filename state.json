@@ -45,7 +45,7 @@
     "lastAlertAt": 1794577213189
   },
   "BTC-USD": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794809717593
   },
@@ -55,7 +55,7 @@
     "lastAlertAt": 1794593712988
   },
   "NG=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794809717593
   },
