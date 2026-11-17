@@ -15,9 +15,9 @@
     "lastAlertAt": 1794845713776
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794852917286
+    "lastAlertAt": 1794897324200
   },
   "EURUSD=X": {
     "zone": "inside",
