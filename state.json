@@ -5,9 +5,9 @@
     "lastAlertAt": 1794923115411
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794923115411
+    "lastAlertAt": 1794929112437
   },
   "^FTSE": {
     "zone": "inside",
