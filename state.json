@@ -5,9 +5,9 @@
     "lastAlertAt": 1794923115411
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794929112437
+    "lastAlertAt": 1794931215592
   },
   "^FTSE": {
     "zone": "inside",
@@ -20,7 +20,7 @@
     "lastAlertAt": 1794930911221
   },
   "EURUSD=X": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794930312874
   },
@@ -45,7 +45,7 @@
     "lastAlertAt": 1794822013706
   },
   "BTC-USD": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794930615882
   },
