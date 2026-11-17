@@ -1,18 +1,18 @@
 {
   "^FCHI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794847216442
+    "lastAlertAt": 1794923115411
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794574512353
+    "lastAlertAt": 1794923115411
   },
   "^FTSE": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1794920114748
+    "lastAlertAt": 1794923115411
   },
   "ES=F": {
     "zone": "inside",
@@ -20,7 +20,7 @@
     "lastAlertAt": 1794915921949
   },
   "EURUSD=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794922814142
   },
@@ -50,7 +50,7 @@
     "lastAlertAt": 1794916813996
   },
   "USDJPY=X": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794922523033
   },
