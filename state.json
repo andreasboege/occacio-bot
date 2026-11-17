@@ -15,7 +15,7 @@
     "lastAlertAt": 1794931513838
   },
   "ES=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794930911221
   },
@@ -25,7 +25,7 @@
     "lastAlertAt": 1794930312874
   },
   "YM=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794931513838
   },
@@ -35,7 +35,7 @@
     "lastAlertAt": 1794923413256
   },
   "NQ=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1794930911221
   },
