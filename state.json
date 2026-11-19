@@ -1,8 +1,8 @@
 {
   "^FCHI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1795096212124
+    "lastAlertAt": 1795106415943
   },
   "^GDAXI": {
     "zone": "inside",
@@ -40,7 +40,7 @@
     "lastAlertAt": 1795103421973
   },
   "GBPUSD=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795106115394
   },
