@@ -5,9 +5,9 @@
     "lastAlertAt": 1795096212124
   },
   "^GDAXI": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1795019415369
+    "lastAlertAt": 1795103716586
   },
   "^FTSE": {
     "zone": "inside",
@@ -15,7 +15,7 @@
     "lastAlertAt": 1795017314684
   },
   "ES=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795103421973
   },
@@ -35,7 +35,7 @@
     "lastAlertAt": 1795006826898
   },
   "NQ=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795103421973
   },
