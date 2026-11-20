@@ -1,6 +1,6 @@
 {
   "^FCHI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795187727634
   },
@@ -45,9 +45,9 @@
     "lastAlertAt": 1795157417044
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1795108512731
+    "lastAlertAt": 1795188013088
   },
   "USDJPY=X": {
     "zone": "inside",
