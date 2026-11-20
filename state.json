@@ -40,9 +40,9 @@
     "lastAlertAt": 1795103421973
   },
   "GBPUSD=X": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795106115394
+    "lastAlertAt": 1795157417044
   },
   "BTC-USD": {
     "zone": "inside",
