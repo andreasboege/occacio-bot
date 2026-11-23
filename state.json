@@ -1,11 +1,11 @@
 {
   "^FCHI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795425914557
   },
   "^GDAXI": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795425914557
   },
@@ -15,7 +15,7 @@
     "lastAlertAt": 1795425914557
   },
   "ES=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795425312425
   },
@@ -25,7 +25,7 @@
     "lastAlertAt": 1795416012726
   },
   "YM=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795424712719
   },
@@ -35,7 +35,7 @@
     "lastAlertAt": 1795006826898
   },
   "NQ=F": {
-    "zone": "overbought",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795425914557
   },
