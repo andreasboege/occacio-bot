@@ -30,7 +30,7 @@
     "lastAlertAt": 1795532112497
   },
   "GC=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
     "lastAlertAt": 1795536323317
   },
