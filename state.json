@@ -55,9 +55,9 @@
     "lastAlertAt": 1795501817700
   },
   "NG=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795422024333
+    "lastAlertAt": 1795508412922
   },
   "CL=F": {
     "zone": "inside",
