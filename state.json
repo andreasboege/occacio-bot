@@ -20,9 +20,9 @@
     "lastAlertAt": 1795518019970
   },
   "EURUSD=X": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795518311434
+    "lastAlertAt": 1795521617582
   },
   "YM=F": {
     "zone": "inside",
