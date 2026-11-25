@@ -25,9 +25,9 @@
     "lastAlertAt": 1795587310341
   },
   "YM=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795532112497
+    "lastAlertAt": 1795596622466
   },
   "GC=F": {
     "zone": "inside",
