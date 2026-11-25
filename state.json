@@ -20,7 +20,7 @@
     "lastAlertAt": 1795518019970
   },
   "EURUSD=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795587310341
   },
@@ -40,7 +40,7 @@
     "lastAlertAt": 1795518019970
   },
   "GBPUSD=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795587310341
   },
