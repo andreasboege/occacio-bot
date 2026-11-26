@@ -10,9 +10,9 @@
     "lastAlertAt": 1795443620443
   },
   "^FTSE": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795609223413
+    "lastAlertAt": 1795705826411
   },
   "ES=F": {
     "zone": "inside",
@@ -45,9 +45,9 @@
     "lastAlertAt": 1795678516413
   },
   "BTC-USD": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1795674014593
+    "lastAlertAt": 1795705826411
   },
   "USDJPY=X": {
     "zone": "inside",
