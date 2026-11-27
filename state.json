@@ -60,7 +60,7 @@
     "lastAlertAt": 1795790411105
   },
   "CL=F": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795796715832
   }
