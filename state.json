@@ -15,9 +15,9 @@
     "lastAlertAt": 1795705826411
   },
   "ES=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795618521444
+    "lastAlertAt": 1795790411105
   },
   "EURUSD=X": {
     "zone": "inside",
@@ -25,19 +25,19 @@
     "lastAlertAt": 1795678217608
   },
   "YM=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795618521444
+    "lastAlertAt": 1795790411105
   },
   "GC=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795620616598
+    "lastAlertAt": 1795790411105
   },
   "NQ=F": {
-    "zone": "inside",
+    "zone": "overbought",
     "failures": 0,
-    "lastAlertAt": 1795618521444
+    "lastAlertAt": 1795790411105
   },
   "GBPUSD=X": {
     "zone": "inside",
@@ -55,9 +55,9 @@
     "lastAlertAt": 1795592113048
   },
   "NG=F": {
-    "zone": "inside",
+    "zone": "oversold",
     "failures": 0,
-    "lastAlertAt": 1795598416200
+    "lastAlertAt": 1795790411105
   },
   "CL=F": {
     "zone": "inside",
