@@ -40,7 +40,7 @@
     "lastAlertAt": 1795618521444
   },
   "GBPUSD=X": {
-    "zone": "oversold",
+    "zone": "inside",
     "failures": 0,
     "lastAlertAt": 1795785912070
   },
